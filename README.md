@@ -22,4 +22,4 @@ PhishShieldAI is an innovative browser extension that leverages the power of AI 
 - Continuously improve the model with new datasets and advanced AI techniques.  
 
 ## Why PhishShieldAI?  
-PhishShieldAI is designed to empower users and organizations by providing a proactive defense against phishing attacks. By combining cutting-edge AI with real-time threat analysis, it ensures business continuity 
+PhishShieldAI is designed to empower users and organizations by providing a proactive defense against phishing attacks. By combining cutting-edge AI with real-time threat analysis, it ensures business continuity and strengthens cybersecurity posture.
