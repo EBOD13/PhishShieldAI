@@ -1,0 +1,97 @@
+.sidebar-container {
+    overflow-y: hidden;  /* Disable scrolling */
+    word-wrap: break-word;  /* Prevents text from breaking layout */
+    width: 20rem;
+    height: 18em;  /* Ensure full screen height */
+    position: fixed;
+    background: white;
+    border-radius: 1.2rem;
+    right: 1.5rem;
+    top: 5px;
+    border: 2px solid teal;
+    box-shadow: -4px 0px 8px rgba(0, 0, 0, 0.1);
+    z-index: 9999;  /* Ensures sidebar is above other elements */
+    display: none;
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+}
+
+.sidebar-container::-webkit-scrollbar {
+    display: none;  /* Safari and Chrome */
+}
+
+.toggle-buttons {
+    display: flex;
+    position: sticky;
+    top: 0;
+    z-index: 20;  /* Ensure it stays on top */
+    background: rgba(236, 239, 241, 1);
+    border-radius: 1rem;
+    margin: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.toggle-buttons button {
+    flex: 1;
+    color: #28A293;
+    padding: 10px;
+    font-weight: bold;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: color 0.3s, border-bottom 0.3s;
+}
+
+.toggle-buttons button.active {
+    border-radius: 1rem;
+    background: white;
+    border: 2px solid teal;
+}
+
+.scan-details, .advanced-scan {
+    display: flex;  /* Use flex for layout */
+    flex-direction: column;
+    gap: 0.3rem;
+    padding: 5px;
+    opacity: 0;  /* Start hidden */
+    visibility: hidden;  /* Start hidden */
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;  /* Smooth transition */
+    position: absolute;  /* Ensure they overlap */
+    width: 100%;  /* Full width */
+}
+
+.scan-details.show, .advanced-scan.show {
+    opacity: 1;  /* Fully visible */
+    visibility: visible;  /* Fully visible */
+}
+
+.scan-details .box, .advanced-scan .box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 92%;
+    max-width: 600px;
+    padding: 0.6rem 0.5rem;
+    background: #F5F7FA;
+    border-radius: 0.5rem;
+    white-space: nowrap;
+}
+
+.scan-details div span, .advanced-scan div span {
+    min-width: 100px;
+    text-align: right;
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    margin-right: 1.5rem;
+    text-overflow: ellipsis;
+}
+
+.box {
+    border-radius: 0.7rem;
+    padding: 12px;
+    display: flex;
+    height: 1.2rem;
+    background: #ECEFF1;
+    align-items: center;
+}

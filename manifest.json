@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "Email Phishing Detector",
+  "version": "1.0",
+  "description": "Detect phishing emails.",
+  "permissions": ["scripting", "activeTab", "downloads"],
+  "host_permissions": ["https://mail.google.com/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://mail.google.com/*"],
+      "js": ["js/content.js"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["html/sidebar.html", "html/toggle-button.html", "css/sidebar.css", "css/toggle-button.css", "img/loup.png"],
+      "matches": ["https://mail.google.com/*"]
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "icon.png"
+  }
+}

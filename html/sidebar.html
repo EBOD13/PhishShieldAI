@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scan Report Sidebar</title>
+    <link rel="stylesheet" href="../css/sidebar.css">
+    <script src="../js/sidebar-toggle.js"></script>
+</head>
+<body>
+<div class="sidebar-container">
+    <div class="toggle-buttons">
+        <button class="active" id="quick-scan-btn">Quick Scan Report</button>
+        <button id="advanced-scan-btn">Advanced Threat Analysis</button>
+    </div>
+    <div class="scan-details show">
+        <div class="box">⏳ Scan Timestamp <span id="scan-timestamp">--</span></div>
+        <div class="box">⏱️ Scan Duration <span id="scan-duration">--</span></div>
+        <div class="box">📊 Scan Status <span id="scan-status">--</span></div>
+        <div class="box">🎯 Classification <span id="scan-classification">--</span></div>
+        <div class="box">⚠️ Score <span id="scan-score">--</span></div>
+    </div>
+    <div class="advanced-scan hide">
+
+        <!-- Additional advanced scan details go here -->
+    </div>
+</div>
+</body>
+</html>

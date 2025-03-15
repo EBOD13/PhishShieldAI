@@ -1,0 +1,24 @@
+.toggle-button {
+    position: fixed;    /* Fix position to viewport */
+    bottom: 1rem;       /* 1rem from the bottom */
+    left: 1rem;         /* 1rem from the left */
+    height: 2.5rem;
+    width: 2.5rem;
+    background: #0A192F;
+    border-radius: 0.65rem;
+    cursor: pointer;
+    transition: color 0.3s, border-bottom 0.3s;
+    display: flex;
+    align-items: center;    /* Center vertically */
+    justify-content: center; /* Center horizontally */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Optional shadow */
+}
+
+.toggle-button img {
+    width: 1.8rem;
+    height: auto;  /* Maintain aspect ratio */
+}
+
+.toggle-button:hover {
+    background: teal;
+}
