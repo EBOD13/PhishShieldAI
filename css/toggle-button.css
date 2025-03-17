@@ -15,10 +15,12 @@
 }
 
 .toggle-button img {
-    width: 1.8rem;
+    width: 1.75rem;
     height: auto;  /* Maintain aspect ratio */
+    transition: width 0.1s ease-in-out, transform 0.1s ease-in-out;
 }
 
-.toggle-button:hover {
-    background: teal;
+.toggle-button img:hover {
+     width: 1.9rem;
+     height: auto;  /* Maintain aspect ratio */
 }

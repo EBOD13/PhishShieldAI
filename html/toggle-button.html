@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Scan Report Sidebar</title>
     <link rel="stylesheet" href="../css/toggle-button.css">
 </head>
 <body>
 <div class="toggle-button">
-    <img id="toggle-icon">
+    <!-- Load the image directly from an external URL! -->
+    <img
+            id="toggle-icon"
+            src="https://www.citypng.com/public/uploads/preview/magnifying-glass-search-white-icon-transparent-png-701751694974238f0vl5bmpat.png"
+            alt="Magnifying Glass Icon"
+    />
 </div>
-<script>
-    // Set the image source using chrome.runtime.getURL
-    document.getElementById("toggle-icon").src = chrome.runtime.getURL("img/loup.png");
-</script>
 </body>
 </html>

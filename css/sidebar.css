@@ -11,7 +11,7 @@
     border: 2px solid teal;
     box-shadow: -4px 0px 8px rgba(0, 0, 0, 0.1);
     z-index: 9999;  /* Ensures sidebar is above other elements */
-    display: none;
+    display: block;
     -ms-overflow-style: none;  /* Internet Explorer 10+ */
     scrollbar-width: none;  /* Firefox */
 }
@@ -94,4 +94,11 @@
     height: 1.2rem;
     background: #ECEFF1;
     align-items: center;
+}
+
+/* Text for the Advanced Threat Analysis */
+.in-progress {
+    color: red;
+    font-weight: bold;
+    text-align: center;
 }
