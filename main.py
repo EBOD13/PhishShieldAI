@@ -32,13 +32,15 @@ repo_id = "ebod13/phish-email-models"
 subfolder = "models/fine_tuned_model"
 
 tokenizer = AutoTokenizer.from_pretrained(repo_id, subfolder=subfolder)
-# Load model with memory optimization
+# Load model with memory optimizations
 model = AutoModelForSequenceClassification.from_pretrained(
     "ebod13/phish-email-models",
     subfolder="models/fine_tuned_model",
-    device_map="auto",  # Automatic device placement
-    torch_dtype=torch.float16,  # Use half-precision
+    device_map="auto",
+    torch_dtype=torch.float16,
+    low_cpu_mem_usage=True,  # Requires accelerate
 )
+
 # Optionally, move model to GPU if available
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 model.to(device)
