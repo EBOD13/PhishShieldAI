@@ -23,13 +23,14 @@ function updateSidebar(data) {
     if (scoreElement) scoreElement.textContent = data.score ? `${data.score}%` : "--";
 }
 
+const serverUrl ="https://phishshield-ai-app-51ce73e83779.herokuapp.com"
 // Function to listen for SSE updates
 function listenForScanStatus() {
     if (window.eventSource) {
         window.eventSource.close();  // Close previous SSE connection
     }
 
-    window.eventSource = new EventSource("http://127.0.0.1:5000/scan_status");
+    window.eventSource = new EventSource(`${serverUrl}/scan_status`);
 
     window.eventSource.onmessage = (event) => {
         const data = JSON.parse(event.data);
@@ -80,7 +81,7 @@ function quickScanEmail() {
     console.log("Detected Links:", links);
 
     // Send data for a quick scan
-    fetch("http://127.0.0.1:5000/quick_scan", {
+    fetch(`${serverUrl}/quick_scan`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ subject, sender: senderEmail, text: extractedText, links: links })
