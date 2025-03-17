@@ -32,8 +32,13 @@ repo_id = "ebod13/phish-email-models"
 subfolder = "models/fine_tuned_model"
 
 tokenizer = AutoTokenizer.from_pretrained(repo_id, subfolder=subfolder)
-model = AutoModelForSequenceClassification.from_pretrained(repo_id, subfolder=subfolder)
-
+# Load model with memory optimization
+model = AutoModelForSequenceClassification.from_pretrained(
+    "ebod13/phish-email-models",
+    subfolder="models/fine_tuned_model",
+    device_map="auto",  # Automatic device placement
+    torch_dtype=torch.float16,  # Use half-precision
+)
 # Optionally, move model to GPU if available
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 model.to(device)
@@ -97,9 +102,13 @@ def perform_scan(data):
     scan_status["duration"] = round(time.time() - start_time, 2)
 
 
+# Main route
+@app.route("/")
+def home():
+    return "PhishShield AI Running"
+
+
 # SSE endpoint to stream scan status
-
-
 @app.route("/scan_status")
 def scan_status_stream():
     def event_stream():
