@@ -2,6 +2,7 @@ import json
 import time
 from flask import Flask, request, jsonify, Response
 import torch
+import os
 from flask_cors import CORS
 from transformers import AutoTokenizer, AutoModelForSequenceClassification
 from datetime import datetime
@@ -20,7 +21,7 @@ scan_status = {
     "timestamp": None,
     "duration": None,
     "classification": None,
-    "score": None
+    "score": None,
 }
 
 # Check if the domain is legitimate
@@ -98,6 +99,7 @@ def perform_scan(data):
 
 # SSE endpoint to stream scan status
 
+
 @app.route("/scan_status")
 def scan_status_stream():
     def event_stream():
@@ -124,4 +126,5 @@ def quick_scan():
 
 # Run Flask Server
 if __name__ == "__main__":
-    app.run(debug=True, host="0.0.0.0", port=5000)
+    port = int(os.environ.get("PORT", 5000))  # Use Heroku's port or default to 5000
+    app.run(debug=True, host="0.0.0.0", port=port)

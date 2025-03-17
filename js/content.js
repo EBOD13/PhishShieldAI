@@ -26,7 +26,7 @@ function updateSidebar(data) {
 // Function to listen for SSE updates
 function listenForScanStatus() {
     if (window.eventSource) {
-        window.eventSource.close();  // ✅ Close previous SSE connection
+        window.eventSource.close();  // Close previous SSE connection
     }
 
     window.eventSource = new EventSource("http://127.0.0.1:5000/scan_status");
@@ -167,7 +167,7 @@ function observeEmails() {
                 quickScanEmail();
             }
         } else {
-            // ✅ Reset when email is closed
+            // Reset when email is closed
             resetScanStatus();
         }
     });
