@@ -36,10 +36,11 @@ tokenizer = AutoTokenizer.from_pretrained(repo_id, subfolder=subfolder)
 model = AutoModelForSequenceClassification.from_pretrained(
     "ebod13/phish-email-models",
     subfolder="models/fine_tuned_model",
-    device_map="auto",
     torch_dtype=torch.float16,
-    low_cpu_mem_usage=True,  # Requires accelerate
-)
+    low_cpu_mem_usage=True,
+).to(
+    "cpu"
+)  # Explicitly move to CPU
 
 # Optionally, move model to GPU if available
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
